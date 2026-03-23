@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>haiii cayangku 💖</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #a8edea, #fed6e3);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* bunga background */
+    .flower-bg span {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .flower-bg span:nth-child(1){ top:10%; left:5%; }
+    .flower-bg span:nth-child(2){ top:30%; right:10%; }
+    .flower-bg span:nth-child(3){ bottom:20%; left:15%; }
+    .flower-bg span:nth-child(4){ bottom:10%; right:5%; }
+    .flower-bg span:nth-child(5){ top:50%; left:2%; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .container {
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    h1, p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+
+    h1 { animation-delay: 0.5s; }
+    p:nth-of-type(1) { animation-delay: 1.2s; }
+    p:nth-of-type(2) { animation-delay: 2s; }
+    p:nth-of-type(3) { animation-delay: 2.8s; }
+    p:nth-of-type(4) { animation-delay: 3.6s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .big-button {
+      padding: 20px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50px;
+      background: white;
+      color: #ff6b81;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .big-button:hover {
+      transform: scale(1.1);
+    }
+
+    .flower-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* bunga gede */
+    .flower {
+      font-size: 150px;
+      animation: bloom 1.5s ease forwards, floatFlower 3s ease-in-out infinite;
+    }
+
+    @keyframes bloom {
+      from { transform: scale(0); }
+      to { transform: scale(1.2); }
+    }
+
+    @keyframes floatFlower {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .love-text {
+      margin-top: 20px;
+      font-size: 18px;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+      animation-delay: 1.5s;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="flower-bg">
+      <span>🌸</span><span>🌼</span><span>🌷</span><span>🌺</span><span>🌹</span>
+    </div>
+
+    <div class="container">
+      <h1>haiiii cayangkuu 💖</h1>
+      <p>kamu tau ga </p>
+      <p>akuu sayang banget samaa kamu</p>
+      <p>kamuu itu cantik, lucu, imut… pokonya adalah</p>
+      <p>jujur dari hati akuu yang palingg dalam, aku bersyukur banget punya kamu 🥺💗</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <button class="big-button" onclick="showFlower()">
+      klikk ini seng
+    </button>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section>
+    <div class="flower-container" id="flowerBox">
+      
+      <div class="flower">🌸</div>
+
+      <div class="love-text">
+        ini bunga buat kamu 🌸 <br>
+        wopyuu 💗✨<br>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIO -->
+  <audio id="bgm" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b0c9b.mp3?filename=romantic-ambient-110997.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function showFlower() {
+      document.getElementById("flowerBox").style.display = "flex";
+
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+
+      let audio = document.getElementById("bgm");
+      audio.volume = 0;
+      audio.play();
+
+      let vol = 0;
+      let fade = setInterval(() => {
+        if (vol >= 1) {
+          clearInterval(fade);
+        } else {
+          vol += 0.05;
+          audio.volume = vol;
+        }
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
